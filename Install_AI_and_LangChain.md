@@ -176,4 +176,4 @@ available.
 For most people, **Ollama + LangChain + Llama 3.2** is the quickest and
 simplest way to get a local AI assistant running on a Windows PC.
 
-[Home](./README.md)
+[Context](./README.md)
