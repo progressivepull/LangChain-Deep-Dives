@@ -49,9 +49,10 @@ The capital of Ohio is Columbus.
 
 Verify Python is installed:
 
-**Shell**
+```shell
 
-**python \--version**
+python --version
+```
 
 If not, download it from:
 
@@ -59,109 +60,100 @@ https://python.org
 
 **[Step 3: Create a Virtual Environment]{.underline}**
 
-**Shell**
+```shell
+python -m venv venv
+```
 
-**python -m venv venv**
+**1. Break down the command**   
+| Part	| Meaning |
+|----------|------------|
+|python	|Runs the Python interpreter.|
+|-m	|Tells Python to run a module as a program.|
+|venv	|Python's built-in module for creating virtual environments.|
+|venv|(last word)	The name of the directory where the environment will be created.|
 
 Activate it:
 
 **Windows**
 
-**Shell**
+```shell
 
-**venv\\Scripts\\activate**
+venv\Scripts\activate
+```
 
 **Linux/Mac**
 
-**Shell**
+```shell
 
-**source venv/bin/activate**
+source venv/bin/activate
+```
 
-**[Step 4: Install LangChain]{.underline}**
+## **Step 4: Install LangChain**
 
-**Shell**
+```shell
+pip install langchain langchain-community langchain-ollama
+```
 
-**pip install langchain langchain-community langchain-ollama**
-
-**[Step 5: Test LangChain with Ollama]{.underline}**
+## **Step 5: Test LangChain with Ollama**
 
 Create test.py:
 
-Python
-
+```python
 from langchain_ollama import OllamaLLM
 
- 
 
 llm = OllamaLLM(model=\"llama3.2\")
 
- 
-
 response = llm.invoke(\"Explain LangChain in simple terms.\")
-
 print(response)
+```
 
 Run it:
 
-**Shell**
-
-**python test.py**
-
-**[Step 6: Use Documents with LangChain]{.underline}**
+```shell
+python test.py
+```
+## **Step 6: Use Documents with LangChain**
 
 Install additional packages:
 
-Shell
-
+```shell
 pip install faiss-cpu pypdf sentence-transformers
+```
 
 Basic RAG (Retrieval-Augmented Generation) workflow:
 
-Plain Text
-
+```
 PDF Files
-
 ↓
-
 Load documents
-
 ↓
-
 Create embeddings
-
 ↓
-
 Store in FAISS
-
 ↓
-
 LangChain retrieves relevant content
-
 ↓
-
 Local AI answers questions
+```
 
-**Hardware Recommendations**
+# **Hardware Recommendations**
 
-  -----------------------
-  **Model**     **RAM**
-  ------------- ---------
-  Llama 3.2 3B  8 GB
+  
+  |**Model**    |  **RAM** |
+   |-------------|---------|
+   |Llama 3.2 3B   |8 GB |
+   |Llama 3.1 8B   |16 GB |
+   |Mistral 7B     |16 GB |
+   |DeepSeek-R1   7B   |16-32 GB |
+          
 
-  Llama 3.1 8B  16 GB
-
-  Mistral 7B    16 GB
-
-  DeepSeek-R1   16-32 GB
-  7B            
-  -----------------------
-
-**With NVIDIA GPU**
+# **With NVIDIA GPU**
 
 Install CUDA-enabled drivers. Ollama will automatically use the GPU when
 available.
 
-**Alternative Local AI Tools**
+# **Alternative Local AI Tools**
 
 - **Ollama** (easiest)
 
@@ -175,5 +167,6 @@ available.
 
 For most people, **Ollama + LangChain + Llama 3.2** is the quickest and
 simplest way to get a local AI assistant running on a Windows PC.
+
 
 [Context](./README.md)
